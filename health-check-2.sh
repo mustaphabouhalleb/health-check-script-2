@@ -183,7 +183,7 @@ do
 done
 
 
-printf "\n\n\t\t HealthChek Summary Report\n\n"
+printf "\n\n\t\t HealthCheck Summary Report\n\n"
 printf "Time UP:\t\t"; uptime|sed 's/.*up \([^,]*\), .*/\1/' | awk '{if ($1 > 0) print "HEALTHY"; else print "WARNING"}'
 #printf "CPU Utilization:\t"; mpstat -P ALL 1 5 -u | grep "^Average" | sed "s/Average://g" | grep -w "all" | awk '{print $NF}' | awk -F'.' '{print(100 -$1)}' | awk '{if($1 < 70) print "HEALTHY"; else print "WARNING"}'
 printf "Memory Utilization:\t"; vmstat -s | grep -w "used memory" | awk '{printf(" %.0f", $1/1024/1024)}' | awk '{if($1 < 700) print "HEALTHY"; else print "WARNING"}'
