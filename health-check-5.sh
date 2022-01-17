@@ -1,4 +1,4 @@
-#!/bin/bash/
+#!/bin/bash
 
 Linux_MCELOG_Control() {
 
